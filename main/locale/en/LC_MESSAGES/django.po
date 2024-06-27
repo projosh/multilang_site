@@ -19,20 +19,21 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 #: .\main\models.py:8
 msgid "title"
-msgstr ""
+msgstr "titre"
 
 #: .\main\models.py:9
 msgid "content"
-msgstr ""
+msgstr "contenu"
 
 #: .\main\models.py:10
 msgid "publication date"
-msgstr ""
+msgstr "date de publication"
+
 
 #: .\main\templates\main\article_list.html:5
 #: .\main\templates\main\article_list.html:9
-msgid "Liste des articles de blog"
-msgstr ""
+msgid "list of article"
+msgstr "list of article"
 
 #: .\multilang_site\settings.py:126
 msgid "English"

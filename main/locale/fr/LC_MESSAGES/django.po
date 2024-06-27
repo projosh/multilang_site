@@ -23,7 +23,7 @@ msgstr "titre"
 
 #: .\main\models.py:9
 msgid "content"
-msgstr "conenu"
+msgstr "contenu"
 
 #: .\main\models.py:10
 msgid "publication date"
@@ -32,7 +32,7 @@ msgstr "date de publication"
 #: .\main\templates\main\article_list.html:5
 #: .\main\templates\main\article_list.html:9
 msgid "Liste des articles de blog"
-msgstr ""
+msgstr "Liste des articles de blog"
 
 #: .\multilang_site\settings.py:126
 msgid "English"
