@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load i18n %}
+    <title>{% trans "Liste des articles de blog" %}</title>
+</head>
+
+<body>
+    <h1>{% trans "Liste des articles de blog" %}</h1>
+    <ul>
+        {% for article in articles %}
+        <li>{{ article.title }} - {{ article.publication_date }}</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
