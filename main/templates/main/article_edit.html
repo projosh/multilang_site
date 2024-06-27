@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    {% load i18n %}
     <title> {%trans "Éditer l'article" %}</title>
 </head>
 
@@ -11,6 +12,7 @@
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Enregistrer</button>
+        {% endfor %}
     </form>
 </body>
 
