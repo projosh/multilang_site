@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-26 15:12+0200\n"
+"POT-Creation-Date: 2024-06-28 15:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,29 +16,18 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: .\main\models.py:8
-msgid "title"
-msgstr "titre"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: .\main\templates\main\article_list.html:8
+#: .\main\templates\main\article_list.html:13
+msgid "List of blog articles"
+msgstr "Liste des articles de blog"
 
-#: .\main\models.py:9
-msgid "content"
-msgstr "contenu"
+msgid "No articles found."
+msgstr "Aucun article trouvé."
 
-#: .\main\models.py:10
-msgid "publication date"
-msgstr "date de publication"
+msgid "Welcome to my site."
+msgstr "Bienvenue sur mon site."
 
+msgid "new api django."
+msgstr "Nouvelle api django."
 
-#: .\main\templates\main\article_list.html:5
-#: .\main\templates\main\article_list.html:9
-msgid "list of article"
-msgstr "list of article"
-
-#: .\multilang_site\settings.py:126
-msgid "English"
-msgstr ""
-
-#: .\multilang_site\settings.py:127
-msgid "French"
-msgstr ""

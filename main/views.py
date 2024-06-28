@@ -1,16 +1,12 @@
 
 from django.shortcuts import render
-from .models import articles_de_blog
+from django.utils.translation import gettext as _
 
-
-
+from main.models import Article
 
 # Create your views here.
+
 def article_list(request):
-    articles = articles_de_blog.objects.all()
-    context = context = {
-        "articles": articles,
-        "message": "salut"
-    }
-    return render(request, 'main/article_list.html',context)
+    articles = Article.objects.all()
+    return render(request, 'main/article_list.html', {'articles': articles})
 

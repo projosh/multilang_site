@@ -14,10 +14,7 @@ from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 import os
 
-def my_view(request):
-    output = _("welcome to my site.")
-    return 
-    
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -115,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 

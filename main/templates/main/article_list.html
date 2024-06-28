@@ -1,33 +1,37 @@
 {% load static %}
-
+{% load i18n %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    {% load i18n %}
-    <title>{% trans "Liste des articles de blog" %}</title>
-    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <meta charset="UTF-8">
+    <title>{% trans "List of blog articles" %}</title>
 </head>
 
 <body>
-    <h1>{% trans "Liste des articles de blog" %}</h1>
+    <h1>{% trans "List of blog articles" %}</h1>
     <ul>
         {% for article in articles %}
         <li>{{ article.title }} - {{ article.publication_date }}</li>
+        {% empty %}
+        <li>{% trans "No articles found." %}</li>
         {% endfor %}
     </ul>
 
-    <p>{% trans "welcome to my site" %}</p>
+    <h2>{% trans "Welcome to my site." %}</h2>
+
+    <p>{% trans "new api django." %}</p>
 
     <form action="{% url 'set_language' %}" method="post">
         {% csrf_token %}
-        <input name="next" type="hidden" value="{{ redirect_to }}" />
+        <input name="next" type="hidden" value="{{ request.path }}" />
         <select name="language">
-            <option value="en">English</option>
-            <option value="fr">Français</option>
+            <option value="en">{% trans "English" %}</option>
+            <option value="fr">{% trans "French" %}</option>
         </select>
         <button type="submit">{% trans "Change language" %}</button>
     </form>
+
 </body>
 
 </html>
