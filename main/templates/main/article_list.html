@@ -1,7 +1,9 @@
 {% load static %}
 {% load i18n %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
+</html>
 
 <head>
     <meta charset="UTF-8">
@@ -20,7 +22,7 @@
 
     <h2>{% trans "Welcome to my site." %}</h2>
 
-    <p>{% trans "new api django." %}</p>
+    <p>{% trans "I live in a house near the mountains." %}</p>
 
     <form action="{% url 'set_language' %}" method="post">
         {% csrf_token %}

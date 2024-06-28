@@ -28,6 +28,5 @@ msgstr "Aucun article trouvé."
 msgid "Welcome to my site."
 msgstr "Bienvenue sur mon site."
 
-msgid "new api django."
-msgstr "Nouvelle api django."
-
+msgid "I live in a house near the mountains."
+msgstr "Je vis dans une maison près des montagnes."
