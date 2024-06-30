@@ -1,0 +1,41 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "Delete Article" %}</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 56px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>{% trans "Delete Article" %}</h1>
+    <p>{% trans "Are you sure you want to delete this article ?" %}</p>
+    <p><strong>{{ article.title }}</strong></p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">{% trans "Confirm" %}</button>
+        <a href="{% url 'article_list' %}">{% trans "Cancel" %}</a>
+    </form>
+</body>
+
+<!--change language-->
+<br />
+<form action="{% url 'set_language' %}" method="post">
+    {% csrf_token %}
+    <input name="next" type="hidden" value="{{ request.path }}" />
+    <select name="language">
+        <option value="en">{% trans "English" %}</option>
+        <option value="fr">{% trans "French" %}</option>
+    </select>
+    <button type="submit" class="btn btn-primary btn-sm">{% trans "Change language" %}</button>
+</form>
+
+</html>

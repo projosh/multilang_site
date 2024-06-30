@@ -8,9 +8,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-
     <title>{% trans "List of blog articles" %}</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 56px;
+            margin: auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,33 +31,29 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">{%trans "home" %} <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">{%trans "articles" %}</a>
-                </li>
             </ul>
         </div>
     </nav>
-    <h1>{% trans "List of blog articles" %}</h1>
-    <!--sidebar sans bootsrap-->
-    <div id="sidebar">
-        {% block sidebar %}
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/article_list/">article</a></li>
-        </ul>
-        {% endblock %}
-    </div>
+
+
+    <h1>{% trans "Mulltilang site" %}</h1>
+
+    <h2>{% trans "List of blog articles" %}</h2>
+
     <ul>
         {% for article in articles %}
+
         <li>{{ article.title }} - {{ article.publication_date }}</li>
+        <a href="{% url 'delete_article' article.id %}">{% trans "Delete" %}</a>
+        <a href="{% url 'article_detail' article.id %}"> {% trans "Read" %}</a>
+
         {% empty %}
         <li>{% trans "No articles found." %}</li>
+
         {% endfor %}
     </ul>
 
-    <h2>{% trans "Welcome to my site." %}</h2>
 
-    <p>{% trans "I live in a house near the mountains." %}</p>
 
     <form action="{% url 'set_language' %}" method="post">
         {% csrf_token %}
@@ -61,8 +62,19 @@
             <option value="en">{% trans "English" %}</option>
             <option value="fr">{% trans "French" %}</option>
         </select>
-        <button type="submit">{% trans "Change language" %}</button>
+        <button type="submit" class="btn btn-primary btn-sm">{% trans "Change language" %}</button>
     </form>
+
+    <footer class="py-5 bg-light">
+        <div class="container">
+            <p class="m-0 text-center text-muted">{% trans "2024 Mulltilang. All Rights Reserved." %}</p>
+            <div class="text-center">
+                <a href="#" class="text-muted mx-2">{% trans "Privacy Policy" %}</a>
+                <a href="#" class="text-muted mx-2">{% trans "Terms of Service" %}</a>
+            </div>
+        </div>
+    </footer>
+
 
 </body>
 

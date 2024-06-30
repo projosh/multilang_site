@@ -37,3 +37,35 @@ msgstr "les articles"
 msgid "home"
 msgstr "page d'accueil"
 
+msgid "2024 Mulltilang. All Rights Reserved"
+msgstr "2024 Multilang. Tous droits réservés"
+
+msgid "Privacy Policy"
+msgstr "Politique de confidentialité"
+
+msgid "Terms of Service"
+msgstr "Conditions d'utilisation"
+
+msgid "delete"
+msgstr "supprimer"
+
+msgid "Delete Article"
+msgstr "Supprimer l'article"
+
+msgid "Are you sure you want to delete this article ?"
+msgstr "Etes-vous sur de vouloir supprimer cette article ?"
+
+msgid "Confirm"
+msgstr "Confirmer"
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "Read"
+msgstr "Lire"
+
+msgid "Back to list"
+msgstr "Retour à la liste"
+
+msgid "Mulltilang site"
+msgstr "Site multilangue"
