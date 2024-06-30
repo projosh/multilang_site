@@ -7,11 +7,41 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
     <title>{% trans "List of blog articles" %}</title>
 </head>
 
 <body>
+    <!--nav bar bootsrap-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Mulltilang site Django</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">{%trans "home" %} <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">{%trans "articles" %}</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <h1>{% trans "List of blog articles" %}</h1>
+    <!--sidebar sans bootsrap-->
+    <div id="sidebar">
+        {% block sidebar %}
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/article_list/">article</a></li>
+        </ul>
+        {% endblock %}
+    </div>
     <ul>
         {% for article in articles %}
         <li>{{ article.title }} - {{ article.publication_date }}</li>

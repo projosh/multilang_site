@@ -24,5 +24,5 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns (
     path('admin/', admin.site.urls), # pour la partie admin de django
-    path('', include('main.urls')),
+    path('', include('main.urls',)),
 )

@@ -30,3 +30,10 @@ msgstr "Bienvenue sur mon site."
 
 msgid "I live in a house near the mountains."
 msgstr "Je vis dans une maison près des montagnes."
+
+msgid "articles"
+msgstr "les articles"
+
+msgid "home"
+msgstr "page d'accueil"
+
