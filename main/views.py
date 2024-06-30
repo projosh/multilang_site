@@ -1,4 +1,5 @@
 
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import gettext as _
 from main.models import Article
@@ -35,6 +36,3 @@ def add_article(request):
         form = ArticleForm()
 
     return render(request, 'main/add_article.html', {'form': form})
-
-
-
