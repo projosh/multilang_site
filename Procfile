@@ -1,1 +1,1 @@
-web: gunicorn multilang_site.wsgi --log-file -
+web: gunicorn multilang_site.settings.wsgi --log-file -
