@@ -4,9 +4,9 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-nrmh%mzd7xz20!p11_@m(^not&kn$c-u6n&)++$vn#_h^uzh@4')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'default-secret-key')
 
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(',')
 
