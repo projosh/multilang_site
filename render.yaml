@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: multilang-site
+    env: python
+    plan: free  # Choisissez le plan approprié pour vos besoins
+    buildCommand: "
+      pip install -r requirements.txt &&
+      python manage.py collectstatic --noinput &&
+      python manage.py migrate
+    "
+    startCommand: "daphne multilang_site.asgi:application --port $PORT --bind 0.0.0.0"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: multilang_site.settings
+      - key: SECRET_KEY
+        value: os.environ.get('DJANGO_SECRET_KEY', 'default-secret-key') # Remplacez par votre clé secrète Django
+      - key: DEBUG
+        value: "False"  # Définissez sur "True" uniquement pour le développement
