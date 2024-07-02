@@ -1,7 +1,7 @@
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 import os
-import dj_database_url
+import psycopg2
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -56,14 +56,27 @@ TEMPLATES = [
 WSGI_APPLICATION = 'multilang_site.wsgi.application'
 
 # Replace the SQLite DATABASES configuration with PostgreSQL:
+
 DATABASES = {
-    'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgresql://dbmultilangsite_user:GTCHsrBwrIZQzSUoZ7FiqR6A7yotMGxD@dpg-cq1rn7bv2p9s73d6tpsg-a/dbmultilangsite
-',
-        conn_max_age=600
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Djangotest',      # Exemple : 'postgresql-multilang-site'
+        'USER': 'postgres',    # Exemple : 'postgres'
+        'PASSWORD': 'superuser' , # Exemple : 'GTCHsrBwrIZQzSUoZ7FiqR6A7yotMGxD'
+        'HOST': 'localhost',  # Exemple : 'localhost'
+        'PORT': '5432',  # Exemple : '5433'
+    }
 }
+
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+"""
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
