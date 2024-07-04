@@ -52,6 +52,7 @@
         <a href="{% url 'create_article' %}">{% trans "Create New Article" %}</a>
         <a href="{% url 'delete_article' article.id %}">{% trans "Delete" %}</a>
         <a href="{% url 'article_detail' article.id %}"> {% trans "Read" %}</a>
+        <a href="{% url 'article_update' article.id %}"> {% trans "Update" %}</a>
         {% empty %}
         <li>{% trans "No articles found." %}</li>
 

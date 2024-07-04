@@ -73,3 +73,6 @@ msgstr "Site multilangue"
 msgid "Create New Article"
 msgstr "créer un article"
 
+msgid "Update"
+msgstr "modifier"
+
