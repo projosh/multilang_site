@@ -56,13 +56,13 @@ TEMPLATES = [
 WSGI_APPLICATION = 'multilang_site.wsgi.application'
 
 # Replace the SQLite DATABASES configuration with PostgreSQL:
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Djangotest',      # Exemple : 'postgresql-multilang-site'
         'USER': 'postgres',    # Exemple : 'postgres'
-        'PASSWORD': 'superuser' , # Exemple : 'GTCHsrBwrIZQzSUoZ7FiqR6A7yotMGxD'
+        'PASSWORD': '1234/', # Exemple : 'GTCHsrBwrIZQzSUoZ7FiqR6A7yotMGxD'
         'HOST': 'localhost',  # Exemple : 'localhost'
         'PORT': '5432',  # Exemple : '5433'
     }
@@ -75,8 +75,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-"""
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -118,6 +116,6 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

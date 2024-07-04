@@ -25,14 +25,12 @@ def delete_article(request, article_id):
         article.delete()
         return redirect('article_list')
     return render(request, 'main/delete_article.html', {'article': article})
-
-def add_article(request):
+def create_article(request):
     if request.method == 'POST':
         form = ArticleForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('article_list')  # Rediriger vers la liste des articles après ajout
+            return redirect('article_list')
     else:
         form = ArticleForm()
-
-    return render(request, 'main/add_article.html', {'form': form})
+    return render(request, 'main/article_form.html', {'form': form})

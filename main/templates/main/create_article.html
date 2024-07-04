@@ -41,24 +41,30 @@
     </nav>
 
 
-    <h1>{% trans "Mulltilang site" %}</h1>
+    <h1>{% trans "create site" %}</h1>
 
-    <h2>{% trans "List of blog articles" %}</h2>
-        
+ 
+
     <ul>
         {% for article in articles %}
 
         <li>{{ article.title }} - {{ article.publication_date }}</li>
-        <a href="{% url 'create_article' %}">{% trans "Create New Article" %}</a>
         <a href="{% url 'delete_article' article.id %}">{% trans "Delete" %}</a>
         <a href="{% url 'article_detail' article.id %}"> {% trans "Read" %}</a>
+        <a href="{% url 'create_article'%}">{%trans "Create"%}</a>
+
         {% empty %}
         <li>{% trans "No articles found." %}</li>
 
         {% endfor %}
     </ul>
 
-
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enregistrer</button>
+    </form>
+    <a href="{% url 'article_list' %}">Retour à la liste</a>
 
     <form action="{% url 'set_language' %}" method="post">
         {% csrf_token %}
