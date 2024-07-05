@@ -56,19 +56,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'multilang_site.wsgi.application'
 
 # Replace the SQLite DATABASES configuration with PostgreSQL:
-"""
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Djangotest',      # Exemple : 'postgresql-multilang-site'
-        'USER': 'postgres',    # Exemple : 'postgres'
-        'PASSWORD': '1234/', # Exemple : 'GTCHsrBwrIZQzSUoZ7FiqR6A7yotMGxD'
-        'HOST': 'localhost',  # Exemple : 'localhost'
-        'PORT': '5432',  # Exemple : '5433'
-    }
-}
 
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
