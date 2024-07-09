@@ -46,4 +46,8 @@ def article_update(request, article_id):
             return redirect('article_list')
     else:
         form = ArticleForm(instance=article)
+<<<<<<< HEAD
     return render(request, 'main/article_form.html', {'form': form})
+=======
+    return render(request, 'main/article_form.html', {'form': form})
+>>>>>>> 3ac16a2195b22adbab17483804c60e7f599df1c7

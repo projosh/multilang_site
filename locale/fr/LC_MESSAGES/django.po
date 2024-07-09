@@ -69,3 +69,10 @@ msgstr "Retour à la liste"
 
 msgid "Mulltilang site"
 msgstr "Site multilangue"
+
+msgid "Create New Article"
+msgstr "créer un article"
+
+msgid "Update"
+msgstr "modifier"
+
