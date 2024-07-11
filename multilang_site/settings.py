@@ -21,11 +21,10 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 DATABASE_URL = os.getenv("DATABASE_URL")
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", 'default-secret-key')
 DEBUG = env.bool('DJANGO_DEBUG', default=False)
+DEBUG = 'RENDER' not in os.environ
 
 ALLOWED_HOSTS=[]
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
 
 
 INSTALLED_APPS = [
@@ -81,10 +80,34 @@ DATABASES = {
     }
 }
 """
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgresql-multilang-site',
+        'USER': 'dbmultilangsite_user',
+        'PASSWORD': 'GTCHsrBwrIZQzSUoZ7FiqR6A7yotMGxD',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+
+DATABASES = {
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgresql://dbmultilangsite_user:GTCHsrBwrIZQzSUoZ7FiqR6A7yotMGxD@dpg-cq1rn7bv2p9s73d6tpsg-a.frankfurt-postgres.render.com/dbmultilangsite',
+        conn_max_age=600
+    )
+}
+
+
 DATABASE_URL = os.getenv('DATABASE_URL')
+
+
 DATABASES = {
     'default': dj_database_url.config(),
 }
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
