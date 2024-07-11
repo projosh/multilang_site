@@ -22,7 +22,7 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", 'default-secret-key')
 DEBUG = env.bool('DJANGO_DEBUG', default=False)
 
-ALLOWED_HOSTS = ['multilangsite.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS=['*',]
 
 
 INSTALLED_APPS = [
@@ -78,10 +78,10 @@ DATABASES = {
     }
 }
 """
-DATABASES = { 
-             'default' : dj_database_url.parse(env('DATABASE_URL'))
-             } 
-
+DATABASE_URL = os.getenv('DATABASE_URL')
+DATABASES = {
+    'default': dj_database_url.config(),
+}
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
