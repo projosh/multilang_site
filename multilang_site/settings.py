@@ -71,7 +71,8 @@ DATABASES = {
 }
 """
 DATABASES = { 
-             'default' : dj_database_url.parse(env(postgresql://dbmultilangsite_user:GTCHsrBwrIZQzSUoZ7FiqR6A7yotMGxD@dpg-cq1rn7bv2p9s73d6tpsg-a.frankfurt-postgres.render.com/dbmultilangsite))} 
+             'default' : dj_database_url.parse(env('DATABASE_URL'))
+             } 
 
 AUTH_PASSWORD_VALIDATORS = [
     {
