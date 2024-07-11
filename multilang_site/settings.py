@@ -9,10 +9,9 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Charger les variables d'environnement à partir du fichier .env
-load_dotenv()
+load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 #initialisation des variables d'environnement
-
 env = environ.Env()
 
 #lire .env file
