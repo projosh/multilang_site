@@ -5,6 +5,9 @@ import environ
 import dj_database_url
 from dotenv import load_dotenv
 
+# Définir le répertoire de base
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 # Charger les variables d'environnement à partir du fichier .env
 load_dotenv()
 
@@ -18,9 +21,7 @@ environ.Env.read_env(os.path(BASE_DIR, '.env'))
 # Accéder à la variable d'environnement
 DATABASE_URL = os.getenv("DATABASE_URL")
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", 'default-secret-key')
-DEBUG = os.getenv("DJANGO_DEBUG", 'false') == 'true'
-
-BASE_DIR = Path(__file__).resolve().parent.parent
+DEBUG = env.bool('DJANGO_DEBUG', default=False)
 
 ALLOWED_HOSTS = []
 
@@ -118,12 +119,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'main/static')
 ]
- #This production code might break development mode, so we check whether we're in DEBUG mode
 if not DEBUG:
-    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
-    # and renames the files with unique names for each version to support long-term caching
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
