@@ -8,6 +8,13 @@ from dotenv import load_dotenv
 # Charger les variables d'environnement à partir du fichier .env
 load_dotenv()
 
+#initialisation des variables d'environnement
+
+env = environ.Env()
+
+#lire .env file
+environ.Env.read_env(os.path(BASE_DIR, '.env'))
+
 # Accéder à la variable d'environnement
 DATABASE_URL = os.getenv("DATABASE_URL")
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", 'default-secret-key')
@@ -71,7 +78,7 @@ DATABASES = {
 }
 """
 DATABASES = { 
-             'default' : dj_database_url.parse(.env('DATABASE_URL'))
+             'default' : dj_database_url.parse(env('DATABASE_URL'))
              } 
 
 AUTH_PASSWORD_VALIDATORS = [
