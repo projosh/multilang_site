@@ -15,7 +15,7 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 env = environ.Env()
 
 #lire .env file
-environ.Env.read_env(os.path(BASE_DIR, '.env'))
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Accéder à la variable d'environnement
 DATABASE_URL = os.getenv("DATABASE_URL")
