@@ -91,7 +91,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
+"""
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
@@ -99,14 +99,22 @@ DATABASES = {
         conn_max_age=600
     )
 }
-
-
+"""
 DATABASE_URL = os.getenv('DATABASE_URL')
 
-
+"""
+DATABASES = {
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgresql://dbmultilangsite_user:GTCHsrBwrIZQzSUoZ7FiqR6A7yotMGxD@dpg-cq1rn7bv2p9s73d6tpsg-a.frankfurt-postgres.render.com/dbmultilangsite',
+        conn_max_age=600
+    )
+}
+"""
 DATABASES = {
     'default': dj_database_url.config(),
 }
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
