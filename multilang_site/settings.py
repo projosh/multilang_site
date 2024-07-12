@@ -11,19 +11,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Charger les variables d'environnement à partir du fichier .env
 load_dotenv(os.path.join(BASE_DIR, '.env'))
 
-#initialisation des variables d'environnement
+# Initialisation des variables d'environnement
 env = environ.Env()
-
-#lire .env file
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Accéder à la variable d'environnement
 DATABASE_URL = os.getenv("DATABASE_URL")
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", 'default-secret-key')
 DEBUG = env.bool('DJANGO_DEBUG', default=False)
+
+# Utilisez DEBUG basé sur la présence de 'RENDER' dans les variables d'environnement
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS=['*']
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -33,11 +33,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-
 ]
 
 MIDDLEWARE = [
-   'django.middleware.security.SecurityMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -46,7 +45,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
-    
 ]
 
 ROOT_URLCONF = 'multilang_site.urls'
@@ -69,46 +67,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'multilang_site.wsgi.application'
 
-# Replace the SQLite DATABASES configuration with PostgreSQL:
-"""
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-"""
-"""
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgresql-multilang-site',
-        'USER': 'dbmultilangsite_user',
-        'PASSWORD': 'GTCHsrBwrIZQzSUoZ7FiqR6A7yotMGxD',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
-"""
-DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600)
-}
-"""
+# Configuration de la base de données
 DATABASES = {
     'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgresql://dbmultilangsite_user:GTCHsrBwrIZQzSUoZ7FiqR6A7yotMGxD@dpg-cq1rn7bv2p9s73d6tpsg-a.frankfurt-postgres.render.com/dbmultilangsite',
+        default=os.getenv('DATABASE_URL'),
         conn_max_age=600
     )
 }
-"""
-DATABASE_URL = os.getenv('DATABASE_URL')
-
-
-DATABASES = {
-    'default': dj_database_url.config(),
-}
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -147,10 +112,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'main/static')
 ]
+
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
