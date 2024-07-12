@@ -23,7 +23,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", 'default-secret-key')
 DEBUG = env.bool('DJANGO_DEBUG', default=False)
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS=[]
+ALLOWED_HOSTS=['*']
 
 
 
