@@ -78,7 +78,7 @@ DATABASES = {
     }
 }
 """
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -88,6 +88,10 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     }
+}
+"""
+DATABASES = {
+    'default': dj_database_url.config(conn_max_age=600)
 }
 """
 DATABASES = {
