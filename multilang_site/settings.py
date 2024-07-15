@@ -68,12 +68,24 @@ TEMPLATES = [
 WSGI_APPLICATION = 'multilang_site.wsgi.application'
 
 # Configuration de la base de données
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',  # Utilisez le moteur approprié pour votre base de données
+        'NAME': BASE_DIR / "db.sqlite3",         # Le nom de la base de données ou le chemin vers le fichier de base de données
+    }
+}
+"""
 DATABASES = {
     'default': dj_database_url.config(
         default=os.getenv('DATABASE_URL'),
         conn_max_age=600
     )
 }
+"""
+
+
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
