@@ -1,24 +1,12 @@
+# Exported from Render on 2024-07-17T10:15:03Z
 databases:
-  - name: multilangdb
-    plan: free
-    databaseName: multilang_site
-    user: dbmultilangsite_user
-
-services:
-  - type: web
-    plan: free
-    name: multilang_site
-    runtime: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn multilang_site.asgi:application -k uvicorn.workers.UvicornWorker"
-    envVars:
-      - key: DATABASE_URL
-        fromDatabase:
-          name: multilangdb
-          property: connectionString
-      - key: DJANGO_SECRET_KEY
-        generateValue: true
-      - key: WEB_CONCURRENCY
-        value: "4"
-      - key: DJANGO_DEBUG
-        value: "false"
+- name: postgresql-multilang-site
+  databaseName: dbmultilangsite
+  user: dbmultilangsite_user
+  plan: free
+  region: frankfurt
+  ipAllowList:
+    source: 0.0.0.0/0
+    description: everywhere
+  postgresMajorVersion: "16"
+version: "1"
