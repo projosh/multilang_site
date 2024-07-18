@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 import os
@@ -70,33 +69,17 @@ TEMPLATES = [
 WSGI_APPLICATION = 'multilang_site.wsgi.application'
 
 # Configuration de la base de données
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',  # Utilisez le moteur approprié pour votre base de données
         'NAME': BASE_DIR / "db.sqlite3",         # Le nom de la base de données ou le chemin vers le fichier de base de données
     }
 }
-"""
-DATABASES = {
 
-    'default': {
 
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+DATABASES["default"] = dj_database_url.parse("postgresql://dbmultilangsite_user:GTCHsrBwrIZQzSUoZ7FiqR6A7yotMGxD@dpg-cq1rn7bv2p9s73d6tpsg-a.frankfurt-postgres.render.com/dbmultilangsite")
 
-        'NAME': 'postgresql-multilang-site',
-
-        'USER': 'dbmultilangsite_user',
-
-        'PASSWORD': 'GTCHsrBwrIZQzSUoZ7FiqR6A7yotMGxD',
-
-        'HOST': 'Localhost',
-
-        'PORT': '5432',
-
-    }
-
-}
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
