@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import gettext as _
 from main.models import Article
 from .forms import ArticleForm 
+import openai
 
 # Create your views here.
 
@@ -47,3 +48,18 @@ def article_update(request, article_id):
     else:
         form = ArticleForm(instance=article)
     return render(request, 'main/article_form.html', {'form': form})
+
+def chatbot_view(request):
+    if request.method == 'POST':
+        user_message = request.POST['message']
+
+        # Generate response using ChatGPT
+        completion = openai.Completion(engine="text-davinci-003", prompt=user_message, max_tokens=150)
+        response = completion.choices[0].text.strip()
+
+        # Return JSON response
+        return HttpResponse(response, content_type='application/json')
+    
+    def chatbot_template(request):
+        return render(request, 'main/chatbot_template.html')
+  

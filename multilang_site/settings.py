@@ -5,6 +5,12 @@ import os
 import environ
 import dj_database_url
 from dotenv import load_dotenv
+import openai
+
+
+# chatgpt
+OPENAI_API_KEY = 'https://chatgpt.com/g/g-gQ0FMGHmb-openapi-gpt'
+openai.api_key = OPENAI_API_KEY
 
 # Définir le répertoire de base
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -78,7 +84,7 @@ DATABASES = {
 }
 
 
-DATABASES["default"] = dj_database_url.parse("postgresql://dbmultilangsite_user:GTCHsrBwrIZQzSUoZ7FiqR6A7yotMGxD@dpg-cq1rn7bv2p9s73d6tpsg-a.frankfurt-postgres.render.com/dbmultilangsite")
+# DATABASES["default"] = dj_database_url.parse("postgresql://dbmultilangsite_user:GTCHsrBwrIZQzSUoZ7FiqR6A7yotMGxD@dpg-cq1rn7bv2p9s73d6tpsg-a.frankfurt-postgres.render.com/dbmultilangsite")
 
 AUTH_PASSWORD_VALIDATORS = [
     {

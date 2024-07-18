@@ -76,3 +76,6 @@ msgstr "créer un article"
 msgid "Update"
 msgstr "modifier"
 
+msgid "chat"
+msgstr "chat"
+

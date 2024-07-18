@@ -53,6 +53,7 @@
         <a href="{% url 'delete_article' article.id %}">{% trans "Delete" %}</a>
         <a href="{% url 'article_detail' article.id %}"> {% trans "Read" %}</a>
         <a href="{% url 'article_update' article.id %}"> {% trans "Update" %}</a>
+        <a href ="{% url 'chatbot_template'%}"> {% trans "chat"%}</a>
         {% empty %}
         <li>{% trans "No articles found." %}</li>
 
