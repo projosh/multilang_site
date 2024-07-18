@@ -60,6 +60,6 @@ def chatbot_view(request):
         # Return JSON response
         return HttpResponse(response, content_type='application/json')
     
-    def chatbot_template(request):
-        return render(request, 'main/chatbot_template.html')
-  
+   
+def chatbot_template(request):
+     return render(request, 'chatbot_template.html')
